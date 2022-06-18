@@ -28,7 +28,7 @@ export class GoogleBooksLambdaStack extends Stack {
                 logRetention: RetentionDays.THREE_DAYS,
                 memorySize: 128,
                 runtime: Runtime.NODEJS_16_X,
-                timeout: Duration.seconds(2),
+                timeout: Duration.seconds(5),
                 reservedConcurrentExecutions: 1,
             },
         );

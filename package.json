@@ -5,8 +5,9 @@
     "google-books-lambda": "bin/google-books-lambda.js"
   },
   "scripts": {
-    "build": "tsc",
-    "watch": "tsc -w",
+    "build": "$(npm bin)/tsc",
+    "postbuild": "cp -r package.json package-lock.json dist/ && cd dist && npm ci --only=prod --ignore-scripts",
+    "watch": "$(npm bin)/tsc -w",
     "cdk": "cdk",
     "check-updates": "$(npm bin)/ncu",
     "make-updates": "$(npm bin)/ncu -u",
@@ -40,5 +41,8 @@
   },
   "lint-staged": {
     "*.{js,ts,json}": "npm run prettier"
+  },
+  "dependencies": {
+    "axios": "0.27.2"
   }
 }
