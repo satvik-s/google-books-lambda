@@ -14,26 +14,34 @@ export class GoogleBooksLambdaStack extends Stack {
     constructor(scope: Construct, id: string, props?: StackProps) {
         super(scope, id, props);
 
-        const googleBooksSearchFn = new Function(
+        const googleBooksBookshelfInfoFn = new Function(
             this,
-            'google-books-book-search',
+            'google-books-bookshelf-info',
             {
                 code: Code.fromAsset(path.join(__dirname, '/../dist')),
                 currentVersionOptions: {
                     removalPolicy: RemovalPolicy.DESTROY,
                 },
-                description: 'google books book search lambda',
-                functionName: 'google-books-book-search',
-                handler: 'book-search.main',
+                environment: {
+                    EMAIL: process.env.GOOGLE_BOOKS_SERVICE_ACCOUNT_EMAIL ?? '',
+                    PRIVATE_KEY: (
+                        process.env.GOOGLE_BOOKS_SERVICE_ACCOUNT_PRIVATE_KEY ??
+                        ''
+                    ).replace(/\\n/gm, '\n'),
+                    USER_ID: process.env.GOOGLE_BOOKS_USER_ID ?? '',
+                },
+                description: 'google books bookshelf info lambda',
+                functionName: 'google-books-bookshelf-info',
+                handler: 'bookshelf-info.main',
                 logRetention: RetentionDays.THREE_DAYS,
                 memorySize: 128,
                 runtime: Runtime.NODEJS_16_X,
-                timeout: Duration.seconds(2),
+                timeout: Duration.seconds(5),
                 reservedConcurrentExecutions: 1,
             },
         );
 
-        googleBooksSearchFn.addFunctionUrl({
+        googleBooksBookshelfInfoFn.addFunctionUrl({
             authType: FunctionUrlAuthType.NONE,
             cors: {
                 allowedMethods: [HttpMethod.GET],
