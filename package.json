@@ -12,7 +12,7 @@
     "check-updates": "$(npm bin)/ncu",
     "make-updates": "$(npm bin)/ncu -u",
     "prepare": "husky install",
-    "lint": "$(npm bin)/eslint --quiet .",
+    "static-analysis": "$(npm bin)/eslint --quiet .",
     "lint-fix": "$(npm bin)/eslint --quiet --fix .",
     "prettier": "$(npm bin)/prettier --write ."
   },
@@ -43,6 +43,6 @@
     "*.{js,ts,json}": "npm run prettier"
   },
   "dependencies": {
-    "axios": "0.27.2"
+    "@googleapis/books": "0.3.1"
   }
 }
