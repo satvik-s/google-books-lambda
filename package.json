@@ -21,7 +21,7 @@
     "@types/prettier": "2.7.0",
     "@typescript-eslint/eslint-plugin": "5.33.0",
     "@typescript-eslint/parser": "5.33.0",
-    "aws-cdk-lib": "2.35.0",
+    "aws-cdk-lib": "2.37.1",
     "constructs": "10.1.71",
     "eslint": "8.21.0",
     "eslint-config-prettier": "8.5.0",
