@@ -33,7 +33,7 @@
     "eslint-plugin-unused-imports": "2.0.0",
     "husky": "8.0.3",
     "lint-staged": "13.1.2",
-    "npm-check-updates": "16.7.4",
+    "npm-check-updates": "16.7.5",
     "prettier": "2.8.4",
     "source-map-support": "0.5.21",
     "ts-node": "10.9.1",
