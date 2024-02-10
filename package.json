@@ -29,7 +29,7 @@
     "eslint-plugin-import": "2.29.1",
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-prettier": "4.2.1",
-    "eslint-plugin-simple-import-sort": "10.0.0",
+    "eslint-plugin-simple-import-sort": "11.0.0",
     "eslint-plugin-unused-imports": "2.0.0",
     "husky": "9.0.10",
     "lint-staged": "15.2.2",
